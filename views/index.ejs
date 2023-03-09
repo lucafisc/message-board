@@ -22,11 +22,11 @@
 					<div class="chat-bubble"><%= message.text %></div>
 					
 				</div>
-				<% }); %>
+				<% }) %>
 		</div>
-		<div class="bg-gray-700 p-5 fixed left-0 bottom-0 z-50 w-full" method="POST" action="/new">
-			<form id="form" class="mx-auto max-w-screen-md flex input-group">
-			<input class="!outline-none input input-bordered" placeholder="Username" required type="text" name="messageUser">
+		<div class="bg-gray-700 p-5 fixed left-0 bottom-0 z-50 w-full" >
+			<form id="form" class="mx-auto max-w-screen-md flex input-group" method="POST" action="/new">
+			<input id="user-name" class="!outline-none input input-bordered" placeholder="Username" required type="text" name="messageUser">
 			<input class="!outline-none input input-bordered flex-grow" placeholder="Message" required type="text" name="messageText">
 			<button class="btn btn-square">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

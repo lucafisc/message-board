@@ -1,12 +1,19 @@
-console.log("aaaaaa");
 window.onload = () => {
-	console.log("scrolling");
   const chatbox = document.querySelector(".chatbox");
   chatbox.scrollTop = chatbox.scrollHeight;
 }
 
-const form = querySelector("#form");
+document.addEventListener("DOMContentLoaded", function() {
+	const form = document.getElementById("form");
+	const usernameInput = form.elements.messageUser;
+	const savedUsername = localStorage.getItem("username");
 
-form.addEventListener('submit', () => {
-	const name = querySelector
-})
+	if (savedUsername) {
+	  usernameInput.value = savedUsername;
+	}
+  
+	form.addEventListener("submit", (event) => {
+	  const username = usernameInput.value;
+	  localStorage.setItem("username", username);
+	});
+  });
