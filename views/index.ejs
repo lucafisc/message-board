@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href="/stylesheets/main.css" />
+	  <script src="/javascripts/script.js"></script>
+  </head>
+  <body>
+	<div class="chatbox mx-auto max-w-screen-md flex flex-col h-screen p-5 overflow-auto pb-24">
+		<div class="fixed top-0 z-50 bg-neutral left-0 w-full h-10 flex flex-col justify-center">
+			<div class="mx-auto max-w-screen-md w-full">
+			  	<h1 class="ml-8"><%= title %></h1>
+			</div>
+		  </div>
+		<div class=" flex-grow flex flex-col justify-end">
+			<% messages.forEach(message => { %>
+				<div class="chat chat-start">
+					<div class="chat-header">
+						<%= message.user %>
+						<time class="text-xs opacity-50"><%= message.added.toLocaleString() %></time>
+					</div>
+					<div class="chat-bubble"><%= message.text %></div>
+					
+				</div>
+				<% }); %>
+		</div>
+		<div class="bg-gray-700 p-5 fixed left-0 bottom-0 z-50 w-full" method="POST" action="/new">
+			<form id="form" class="mx-auto max-w-screen-md flex input-group">
+			<input class="!outline-none input input-bordered" placeholder="Username" required type="text" name="messageUser">
+			<input class="!outline-none input input-bordered flex-grow" placeholder="Message" required type="text" name="messageText">
+			<button class="btn btn-square">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+				  </svg>
+				</button>
+				<div>
+				</form>
+			</div>
+	</div>
+  </body>
+</html>
